@@ -1,4 +1,3 @@
-import React from "react";
 import { IProduct } from "../App";
 import { getColorRGBA } from "../helpers/Color";
 
@@ -17,12 +16,17 @@ function FilterResult({ products }: FilterResultsProps) {
           style={{
             background: `linear-gradient(145deg, ${getColorRGBA(
               product.colors[0]
-            )} 0%, ${getColorRGBA(product.colors.at(-1))} 100%)`,
-            boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;",
+            )} 0%, ${getColorRGBA(
+              product.colors[product?.colors?.length - 1]
+            )} 100%)`,
+            boxShadow:
+              "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;",
           }}
         >
           <div className={`mb-2 border-b border-gray-400 p-2 `}>
-            <h4 className="text-lg font-semibold text-gray-800">{product.name}</h4>
+            <h4 className="text-lg font-semibold text-gray-800">
+              {product.name}
+            </h4>
           </div>
           <div>
             <p className="text-[10px] text-gray-600 pb-0.5  border-b w-fit ">
